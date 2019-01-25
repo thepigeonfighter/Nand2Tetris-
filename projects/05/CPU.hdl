@@ -23,6 +23,21 @@
  * to their new values only in the next time step. If reset==1 then the 
  * CPU jumps to address 0 (i.e. pc is set to 0 in next time step) rather 
  * than to the address resulting from executing the current instruction. 
+ d1 d2 d3
+ 0  0   0  null
+ 0  0   1  m
+ 0  1   0  d
+ 0  1   1  md 
+ 1  0   0  a
+ 1  0   1   am
+ 
+ 1  1   0   ad
+1   1   1   amd 
+    
+ixxaccccccdddjjj
+          adm
+    
+    
  */
 
 CHIP CPU {
@@ -39,5 +54,30 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
-    // Put your code here:
+    //A register
+    Not(in=instruction[15], out=aInstruction);
+    Or(a=aInstruction, b=instruction[5], out=writeA);
+    ARegister(in=instructMux, load= writeA,out= aReg, out[0..14] =addressM);
+    //D register  
+    And(a=instruction[4], b=instruction[15], out=loadD);
+    DRegister(in=aluOut, load = loadD, out= dReg);
+    //Instruction MUX
+    Mux16(a=instruction, b=aluOut, sel=instruction[15], out=instructMux);
+    //A/M Mux
+    Mux16(a=aReg, b=inM, sel=instruction[12], out=y);
+    //ALU
+    ALU(x=dReg,y=y,zx=instruction[11],nx=instruction[10],zy=instruction[9],ny=instruction[8],
+    f=instruction[7],no=instruction[6],out=aluOut,out=outM,zr=equalsZero,ng=lessThanZero);
+    //JUMP 
+    Not(in = lessThanZero, out = equalsOrGreater);
+    And(a=equalsOrGreater, b=notEqualZero, out=greaterThanZero);
+    Not(in = equalsZero, out = notEqualZero);                                   
+    Or(a=equalsZero, b=lessThanZero, out=equalsOrLess);
+    Mux8(a=false,b=greaterThanZero, c = equalsZero, d=equalsOrGreater,  
+    e= lessThanZero,f=notEqualZero,g=equalsOrLess, h =true, sel = instruction[0..2], out= jumpCondition);
+    And(a=jumpCondition, b=instruction[15], out=shouldJump);
+    //WriteM
+    And(a=instruction[15], b=instruction[3], out=writeM);
+    //PC
+    PC(in=aReg, load=shouldJump, inc=true, reset=reset, out[0..14]=pc);
 }
