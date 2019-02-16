@@ -1,0 +1,686 @@
+function BackgroundBuilder.new 0
+push constant 1
+call Memory.alloc 1
+pop pointer 0
+push constant 0
+pop this 0
+push pointer 0
+return
+function BackgroundBuilder.Build 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+call BackgroundBuilder.DrawBackground 1
+pop temp 0
+push pointer 0
+call BackgroundBuilder.DrawHeader 1
+pop temp 0
+push pointer 0
+call BackgroundBuilder.BuildTitle 1
+pop temp 0
+push pointer 0
+call BackgroundBuilder.DrawFooter 1
+pop temp 0
+push constant 0
+return
+function BackgroundBuilder.Reset 0
+push argument 0
+pop pointer 0
+push pointer 0
+call BackgroundBuilder.ClearBackground 1
+pop temp 0
+push constant 0
+pop this 0
+push constant 0
+return
+function BackgroundBuilder.DrawNext 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 5
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+call BackgroundBuilder.BuildBody 1
+pop temp 0
+label IF_FALSE0
+push this 0
+push constant 4
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push pointer 0
+call BackgroundBuilder.DrawRope 1
+pop temp 0
+label IF_FALSE1
+push this 0
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push pointer 0
+call BackgroundBuilder.DrawTopPiece 1
+pop temp 0
+label IF_FALSE2
+push this 0
+push constant 2
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push pointer 0
+call BackgroundBuilder.DrawVerticalPieces 1
+pop temp 0
+label IF_FALSE3
+push this 0
+push constant 1
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push pointer 0
+call BackgroundBuilder.DrawDirt 1
+pop temp 0
+label IF_FALSE4
+push this 0
+push constant 0
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push pointer 0
+call BackgroundBuilder.DrawGround 1
+pop temp 0
+label IF_FALSE5
+push this 0
+push constant 1
+add
+pop this 0
+push constant 0
+return
+function BackgroundBuilder.ClearBackground 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push constant 156
+push constant 0
+push constant 511
+push constant 179
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push constant 0
+return
+function BackgroundBuilder.DrawBackground 0
+push argument 0
+pop pointer 0
+push constant 155
+push constant 0
+push constant 155
+push constant 255
+call Screen.drawLine 4
+pop temp 0
+push constant 155
+push constant 180
+push constant 511
+push constant 180
+call Screen.drawLine 4
+pop temp 0
+push pointer 0
+call BackgroundBuilder.WriteSecretWordSection 1
+pop temp 0
+push pointer 0
+call BackgroundBuilder.WritePastGuessesSection 1
+pop temp 0
+push constant 0
+return
+function BackgroundBuilder.WritePastGuessesSection 0
+push argument 0
+pop pointer 0
+push constant 15
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push constant 17
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 80
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 71
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+push constant 140
+push constant 155
+push constant 140
+call Screen.drawLine 4
+pop temp 0
+push constant 0
+return
+function BackgroundBuilder.DrawHeader 0
+push argument 0
+pop pointer 0
+push constant 3
+call GraphicDrawer.DrawSkull 1
+pop temp 0
+push constant 4
+call GraphicDrawer.DrawSkull 1
+pop temp 0
+push constant 5
+call GraphicDrawer.DrawSkull 1
+pop temp 0
+push constant 0
+return
+function BackgroundBuilder.BuildBody 0
+push argument 0
+pop pointer 0
+push constant 2579
+call GraphicDrawer.DrawHeadSection 1
+pop temp 0
+push constant 3091
+call GraphicDrawer.DrawBodySection 1
+pop temp 0
+push constant 3603
+call GraphicDrawer.DrawHipSection 1
+pop temp 0
+push constant 4115
+call GraphicDrawer.DrawFeetSection 1
+pop temp 0
+push constant 0
+return
+function BackgroundBuilder.BuildTitle 0
+push argument 0
+pop pointer 0
+push constant 0
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+call Output.println 0
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 16
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 72
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 16
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 17
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 121
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 19
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 119
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 100
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 98
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 102
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 18
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 121
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 102
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 100
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 89
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 107
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 9
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 46
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+return
+function BackgroundBuilder.WriteSecretWordSection 0
+push argument 0
+pop pointer 0
+push constant 17
+push constant 20
+call Output.moveCursor 2
+pop temp 0
+push constant 12
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 87
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 100
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+return
+function BackgroundBuilder.DrawFooter 0
+push argument 0
+pop pointer 0
+push constant 3427
+call GraphicDrawer.DrawSkull 1
+pop temp 0
+push constant 3428
+call GraphicDrawer.DrawSkull 1
+pop temp 0
+push constant 3429
+call GraphicDrawer.DrawSkull 1
+pop temp 0
+push constant 0
+return
+function BackgroundBuilder.DrawVerticalPieces 2
+push argument 0
+pop pointer 0
+push constant 1040
+pop local 0
+push constant 0
+pop local 1
+label WHILE_EXP0
+push local 1
+push constant 5
+lt
+not
+if-goto WHILE_END0
+push local 0
+call GraphicDrawer.DrawVerticalPiece 1
+pop temp 0
+push local 0
+push constant 512
+add
+pop local 0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function BackgroundBuilder.DrawTopPiece 2
+push argument 0
+pop pointer 0
+push constant 528
+pop local 1
+push local 1
+call GraphicDrawer.DrawTopPiece 1
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+label WHILE_EXP0
+push local 0
+push constant 2
+lt
+not
+if-goto WHILE_END0
+push local 1
+call GraphicDrawer.DrawHorizontalSection 1
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push local 1
+call GraphicDrawer.DrawGallowHook 1
+pop temp 0
+push constant 0
+return
+function BackgroundBuilder.DrawGround 0
+push argument 0
+pop pointer 0
+push constant 155
+push constant 112
+push constant 280
+push constant 112
+call Screen.drawLine 4
+pop temp 0
+push constant 280
+push constant 112
+push constant 280
+push constant 180
+call Screen.drawLine 4
+pop temp 0
+push constant 0
+return
+function BackgroundBuilder.DrawDirt 4
+push argument 0
+pop pointer 0
+push constant 3626
+pop local 2
+push constant 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 7
+lt
+not
+if-goto WHILE_END0
+push constant 0
+pop local 1
+push constant 0
+pop local 3
+label WHILE_EXP1
+push local 1
+push constant 4
+lt
+not
+if-goto WHILE_END1
+push local 2
+push local 3
+add
+call GraphicDrawer.DrawDirt 1
+pop temp 0
+push local 3
+push constant 512
+add
+pop local 3
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP1
+label WHILE_END1
+push local 0
+push constant 1
+add
+pop local 0
+push local 2
+push constant 1
+add
+pop local 2
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function BackgroundBuilder.DrawRope 2
+push argument 0
+pop pointer 0
+push constant 1043
+pop local 1
+label WHILE_EXP0
+push local 0
+push constant 3
+lt
+not
+if-goto WHILE_END0
+push local 1
+call GraphicDrawer.DrawRopeSection 1
+pop temp 0
+push local 1
+push constant 512
+add
+pop local 1
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function BackgroundBuilder.Dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

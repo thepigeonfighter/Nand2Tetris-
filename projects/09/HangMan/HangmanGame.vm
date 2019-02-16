@@ -1,0 +1,717 @@
+function HangmanGame.new 0
+push constant 12
+call Memory.alloc 1
+pop pointer 0
+push pointer 0
+return
+function HangmanGame.StartGame 0
+push argument 0
+pop pointer 0
+push constant 0
+pop this 6
+push constant 6
+pop this 7
+push constant 0
+pop this 8
+push constant 0
+pop this 9
+push pointer 0
+call HangmanGame.UpdateLevelInfoUI 1
+pop temp 0
+call BackgroundBuilder.new 0
+pop this 0
+call WordDictionary.new 0
+pop this 1
+push this 1
+push this 6
+call WordDictionary.GetWord 2
+pop this 5
+push this 5
+call GuessUI.new 1
+pop this 4
+call PreviousGuessesUI.new 0
+pop this 2
+push this 0
+call BackgroundBuilder.Build 1
+pop temp 0
+push pointer 0
+call HangmanGame.MainGameLoop 1
+pop temp 0
+push constant 0
+return
+function HangmanGame.UpdateLevelInfoUI 0
+push argument 0
+pop pointer 0
+push this 3
+push this 6
+call LevelInfoUI.SetLevel 2
+pop temp 0
+push this 3
+push this 7
+call LevelInfoUI.SetGuessesLeft 2
+pop temp 0
+push constant 0
+return
+function HangmanGame.MainGameLoop 3
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+push constant 0
+pop local 2
+push constant 0
+pop local 0
+label WHILE_EXP0
+push local 1
+not
+not
+if-goto WHILE_END0
+call Keyboard.keyPressed 0
+pop this 10
+push pointer 0
+call HangmanGame.HandleInput 1
+pop temp 0
+push this 4
+call GuessUI.WordGuessed 1
+pop local 2
+push this 8
+push local 2
+or
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+pop local 1
+label IF_FALSE0
+goto WHILE_EXP0
+label WHILE_END0
+push local 2
+push constant 0
+not
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push pointer 0
+call HangmanGame.NextLevel 1
+pop temp 0
+goto IF_END1
+label IF_FALSE1
+push pointer 0
+call HangmanGame.HandleGameOver 1
+pop temp 0
+label IF_END1
+push constant 0
+return
+function HangmanGame.NextLevel 0
+push argument 0
+pop pointer 0
+push this 6
+push constant 5
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 6
+push constant 1
+add
+pop this 6
+push pointer 0
+push constant 15
+call String.new 1
+push constant 76
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 67
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+push constant 4
+call HangmanGame.FlashMessage 3
+pop temp 0
+push pointer 0
+call HangmanGame.RunLevel 1
+pop temp 0
+goto IF_END0
+label IF_FALSE0
+push pointer 0
+push constant 11
+call String.new 1
+push constant 89
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 85
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 87
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+push constant 7
+call HangmanGame.FlashMessage 3
+pop temp 0
+push constant 0
+not
+pop this 9
+label IF_END0
+push constant 0
+return
+function HangmanGame.FlashMessage 2
+push argument 0
+pop pointer 0
+push constant 0
+not
+pop local 1
+push constant 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push argument 2
+lt
+not
+if-goto WHILE_END0
+push constant 6
+push constant 45
+call Output.moveCursor 2
+pop temp 0
+push local 1
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 1
+call Output.printString 1
+pop temp 0
+push constant 0
+pop local 1
+goto IF_END0
+label IF_FALSE0
+push constant 16
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+not
+pop local 1
+label IF_END0
+push local 0
+push constant 1
+add
+pop local 0
+push constant 400
+call Sys.wait 1
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function HangmanGame.RunLevel 0
+push argument 0
+pop pointer 0
+push constant 6
+pop this 7
+push this 0
+call BackgroundBuilder.Reset 1
+pop temp 0
+push pointer 0
+call HangmanGame.UpdateLevelInfoUI 1
+pop temp 0
+push this 1
+push this 6
+call WordDictionary.GetWord 2
+pop this 5
+push this 4
+push this 5
+call GuessUI.Reset 2
+pop temp 0
+push this 2
+call PreviousGuessesUI.Reset 1
+pop temp 0
+push pointer 0
+call HangmanGame.MainGameLoop 1
+pop temp 0
+push constant 0
+return
+function HangmanGame.HandleGameCompleted 0
+push argument 0
+pop pointer 0
+push constant 6
+push constant 45
+call Output.moveCursor 2
+pop temp 0
+push pointer 0
+push constant 25
+call String.new 1
+push constant 89
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 98
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+push constant 7
+call HangmanGame.FlashMessage 3
+pop temp 0
+push constant 0
+return
+function HangmanGame.HandleGameOver 0
+push argument 0
+pop pointer 0
+push pointer 0
+push constant 12
+call String.new 1
+push constant 71
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 86
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+push constant 5
+call HangmanGame.FlashMessage 3
+pop temp 0
+push constant 9
+push constant 45
+call Output.moveCursor 2
+pop temp 0
+push constant 10
+call String.new 1
+push constant 82
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 121
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 10
+push constant 45
+call Output.moveCursor 2
+pop temp 0
+push constant 9
+call String.new 1
+push constant 88
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 113
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push pointer 0
+call HangmanGame.GetResponse 1
+pop temp 0
+push constant 0
+return
+function HangmanGame.ClearGameOverMessage 0
+push argument 0
+pop pointer 0
+push constant 6
+push constant 45
+call Output.moveCursor 2
+pop temp 0
+push constant 15
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 9
+push constant 45
+call Output.moveCursor 2
+pop temp 0
+push constant 11
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 10
+push constant 45
+call Output.moveCursor 2
+pop temp 0
+push constant 12
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+return
+function HangmanGame.GetResponse 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+label WHILE_EXP0
+push local 0
+not
+not
+if-goto WHILE_END0
+call Keyboard.keyPressed 0
+pop local 1
+push local 1
+push constant 82
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+pop this 8
+push pointer 0
+call HangmanGame.ClearGameOverMessage 1
+pop temp 0
+push pointer 0
+call HangmanGame.RunLevel 1
+pop temp 0
+push constant 0
+not
+pop local 0
+label IF_FALSE0
+push local 1
+push constant 88
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push pointer 0
+call HangmanGame.EndGame 1
+pop temp 0
+push constant 0
+not
+pop local 0
+label IF_FALSE1
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function HangmanGame.HandleInput 0
+push argument 0
+pop pointer 0
+push this 10
+push constant 0
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 11
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push pointer 0
+call HangmanGame.MakeGuess 1
+pop temp 0
+push constant 0
+not
+pop this 11
+label IF_FALSE1
+goto IF_END0
+label IF_FALSE0
+push constant 0
+pop this 11
+label IF_END0
+push constant 0
+return
+function HangmanGame.MakeGuess 2
+push argument 0
+pop pointer 0
+push this 2
+push this 10
+call PreviousGuessesUI.IsValidGuess 2
+pop local 1
+push local 1
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+pop local 0
+push this 4
+push this 10
+call GuessUI.MakeGuess 2
+pop local 0
+push local 0
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 7
+push constant 1
+sub
+pop this 7
+push this 0
+call BackgroundBuilder.DrawNext 1
+pop temp 0
+push this 7
+push constant 0
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+not
+pop this 8
+label IF_FALSE2
+push pointer 0
+call HangmanGame.UpdateLevelInfoUI 1
+pop temp 0
+label IF_FALSE1
+push this 2
+push this 10
+call PreviousGuessesUI.AddGuess 2
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function HangmanGame.EndGame 0
+push argument 0
+pop pointer 0
+push this 1
+call WordDictionary.Dispose 1
+pop temp 0
+push this 4
+call GuessUI.Dispose 1
+pop temp 0
+push this 2
+call PreviousGuessesUI.Dispose 1
+pop temp 0
+push this 0
+call BackgroundBuilder.Dispose 1
+pop temp 0
+push pointer 0
+call HangmanGame.Dispose 1
+pop temp 0
+push constant 0
+return
+function HangmanGame.Dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

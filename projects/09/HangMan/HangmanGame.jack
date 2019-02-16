@@ -1,0 +1,232 @@
+
+//This class should control gameflow
+class HangmanGame
+{
+    field BackgroundBuilder backgroundBuilder;
+    field WordDictionary wordDictionary;
+    field PreviousGuessesUI previousGuessesUI;
+    field LevelInfoUI levelInfoUI;
+    field GuessUI guessUI;
+    field String secretWord;
+    field int levelNumber;
+    field int guessesLeft;
+    field bool gameOver;
+    field bool gameCompleted;
+    field char key;
+    field bool keyPressed;
+    constructor HangmanGame new()
+    {        
+        return this;
+    }
+    method void StartGame()
+    {
+        let levelNumber = 0;
+        let guessesLeft = 6;
+        let gameOver = false;
+        let gameCompleted = false;
+        do UpdateLevelInfoUI();
+        let backgroundBuilder = BackgroundBuilder.new();
+        let wordDictionary = WordDictionary.new();  
+        let secretWord = wordDictionary.GetWord(levelNumber);
+        let guessUI =  GuessUI.new(secretWord);
+        let previousGuessesUI = PreviousGuessesUI.new();      
+        do backgroundBuilder.Build();
+        do MainGameLoop();
+        return;
+    }
+    method void UpdateLevelInfoUI()
+    {
+        do levelInfoUI.SetLevel(levelNumber);
+        do levelInfoUI.SetGuessesLeft(guessesLeft);
+        return;
+    }
+    method void MainGameLoop()
+    {
+        
+        var bool correctLetter;
+        var bool exit;
+        var bool roundCompleted;
+        let exit = false;
+        let roundCompleted = false;
+        let correctLetter = false;
+        while(~exit)
+        {
+            let key = Keyboard.keyPressed();              
+            do HandleInput();  
+            let roundCompleted = guessUI.WordGuessed();       
+            if(gameOver | roundCompleted)
+            {
+               let exit = true;
+            }           
+            
+        }
+        if(roundCompleted = true)
+        {
+            do NextLevel();
+        }
+        else{
+
+            do HandleGameOver();
+        }        
+       
+        
+        return;
+    }
+    method void NextLevel()
+    {      
+           if(levelNumber<5)
+           {            
+                let levelNumber = levelNumber + 1;
+                do FlashMessage("Level Complete!", 4);
+                do RunLevel();
+                
+           }
+           else{
+
+                do FlashMessage("YOU WIN!!!!", 7);
+                let gameCompleted = true;
+           }        
+        return;
+    }
+    method void FlashMessage(string message, int loops)
+    {
+        var int counter;
+        var bool showMessage;
+        let showMessage = true;
+        let counter = 0;
+        while(counter< loops)
+        {
+            do Output.moveCursor(6,45);
+            if(showMessage)
+            {
+                do Output.printString(message);
+                let showMessage = false;
+            }
+            else
+            {
+                do Output.printString("                ");
+                let showMessage = true;
+            }
+            let counter = counter + 1;
+            do Sys.wait(400);
+        }
+        
+        return;
+    }
+    method void RunLevel()
+    {
+        let guessesLeft = 6;
+        do backgroundBuilder.Reset();
+        do UpdateLevelInfoUI();
+        let secretWord = wordDictionary.GetWord(levelNumber);
+        do guessUI.Reset(secretWord);
+        do previousGuessesUI.Reset();
+        do MainGameLoop();
+        return;
+    }
+    method void HandleGameCompleted()
+    {
+        do Output.moveCursor(6,45);
+        do FlashMessage("You have beaten the game!", 7);
+        return;
+    }
+    method void HandleGameOver()
+    {
+        do FlashMessage("GAME OVER!!!",5);
+        do Output.moveCursor(9,45);
+        do Output.printString("R to retry");
+        do Output.moveCursor(10,45);
+        do Output.printString("X to quit");
+        do GetResponse();
+        return;  
+    } 
+    method void ClearGameOverMessage()
+    {
+        do Output.moveCursor(6,45);
+        do Output.printString("               ");
+        do Output.moveCursor(9,45);
+        do Output.printString("           ");
+        do Output.moveCursor(10,45);
+        do Output.printString("            ");
+        return;
+    }
+    method void GetResponse()
+    {
+        var bool exit;
+        var char c;
+        let exit = false;
+        while(~exit)
+        {
+            let c = Keyboard.keyPressed();
+            //User hit the letter 'R'
+            if(c = 82)
+            {
+                let gameOver = false;
+                do ClearGameOverMessage();
+                do RunLevel();
+                let exit = true;
+            }
+            //User hit the letter 'X'
+            if(c = 88)
+            {
+                do EndGame();
+                let exit = true;
+            }
+        }
+        return;
+    }
+
+    method void HandleInput()
+    {
+        if(~(key = 0))
+        {
+            if(~keyPressed)
+            {
+                do MakeGuess();
+                let keyPressed = true;
+            }
+        }
+        else
+        {
+            let keyPressed = false;
+        }
+        return;
+    }
+    method void MakeGuess()
+    {
+        var bool correctGuess;
+        var bool validChar;
+        let validChar = previousGuessesUI.IsValidGuess(key);
+        if(validChar)
+        {
+            let correctGuess = false;
+            let correctGuess = guessUI.MakeGuess(key);
+            if(~correctGuess)
+            {
+                let guessesLeft = guessesLeft -1;
+                do backgroundBuilder.DrawNext();
+                if(guessesLeft = 0)
+                {
+                    let gameOver = true;
+                }
+                do UpdateLevelInfoUI();
+            }
+            do previousGuessesUI.AddGuess(key);
+        }
+        return;
+    }
+    method void EndGame()
+    {
+        do wordDictionary.Dispose();
+        do guessUI.Dispose();
+        do previousGuessesUI.Dispose();
+        do backgroundBuilder.Dispose();
+        do Dispose();
+        return;
+    }
+    method void Dispose()
+    {
+        do Memory.deAlloc(this);
+        return;
+    }
+}

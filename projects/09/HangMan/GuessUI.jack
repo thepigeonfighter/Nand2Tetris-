@@ -1,0 +1,91 @@
+class GuessUI
+{
+    field string secretWord;
+    field string currentlyDisplayWord;
+    field int lettersGuessed;
+    constructor GuessUI new (string word)
+    {    
+        do Reset(word);
+        return this;
+    }
+    method void Reset(string word)
+    {
+        do Output.moveCursor(19,21);
+        do Output.printString("**********");
+        let currentlyDisplayWord = "**********";
+        let secretWord = word;
+        let lettersGuessed = 0;
+        return;
+    }
+    method void ShowWord()
+    {
+        do Output.moveCursor(19,21);
+        do Output.printString(secretWord);
+        return;
+    }
+    method bool MakeGuess( char guess)
+    {
+        var int counter;
+        var int max;
+        var bool foundMatch;
+        var char c;
+        //do  ShowWord();
+        let max = String.length(secretWord);
+        let foundMatch = false;
+        let counter = 0;  
+        while (counter<max)
+        {        
+            let c = String.charAt(secretWord, counter);        
+            if(c = guess)
+                {
+                    do UpdateDisplay(c,counter);
+                    let foundMatch = true;
+                }
+            let counter = counter + 1;
+        
+        }
+        if(foundMatch = true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    method bool WordGuessed()
+    {      
+        var char undiscoveredChar;
+        var char letter;
+        var int counter;
+        var bool fullWordGuessed;
+        let fullWordGuessed = true;
+        let counter = 0;
+        let undiscoveredChar = 42;
+        while(counter< 10)
+        {
+            let letter = String.charAt(currentlyDisplayWord,counter);
+            if(letter = undiscoveredChar)
+            {
+                let fullWordGuessed = false;
+            }
+            let counter = counter + 1;
+        }
+        return fullWordGuessed;
+
+    }
+    method void UpdateDisplay(char c , int index)
+    {
+        let lettersGuessed = lettersGuessed + 1;
+        do String.setCharAt(currentlyDisplayWord,index,c);
+        do Output.moveCursor(19,21);
+        do Output.printString(currentlyDisplayWord);
+        return;
+    }
+
+    method void Dispose()
+    {
+        do Memory.deAlloc(this);
+        return;
+    }
+}

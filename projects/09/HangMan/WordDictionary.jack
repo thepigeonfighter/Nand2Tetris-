@@ -1,0 +1,89 @@
+class WordDictionary{
+    field Array WordArray;
+
+    constructor WordDictionary new()
+    {
+        let WordArray = Array.new(6);
+        do BuildWordDictionary();
+        return this;
+    }
+    method void BuildWordDictionary()
+    {
+        var string word;
+        var string word1;
+        var string word2;
+        var string word3;
+        var string word4;
+        var string word5;
+        /*
+        var string word6;
+        var string word7;
+        var string word8;
+        var string word9;
+        var string word10;
+        var string word11;
+        var string word12;
+        var string word13;
+        var string word14;
+        var string word15;
+        var string word16;
+        var string word17;
+        var string word18;
+        var string word19;
+        */
+        let word = "PUZZLEMENT";
+        let WordArray[0] = word;        
+        let word1 = "JACKKNIFED";
+        let WordArray[1] = word1;
+        let word2 = "MAXIMIZING";
+        let WordArray[2] = word2;
+        let word3 = "KICKBOXING";
+        let WordArray[3] = word3;
+        let word4 = "LUMBERJACK";
+        let WordArray[4] = word4;
+        let word5 = "EQUALIZING";
+        let WordArray[5] = word5;
+        /*
+        removed these entires because the game was boring by this point
+        let word6 = "MEZZANINES";
+        let WordArray[6] = word6;
+        let word7 = "SQUEEZABLE";
+        let WordArray[7] = word7;
+        let word8 = "EXORCISING";
+        let WordArray[8] = word8;
+        let word9 = "JACKRABBIT";
+        let WordArray[8] = word9;
+        let word10 = "LIQUIDIZED";
+        let WordArray[10] = word10;
+        let word11 = "QUIZMASTER";
+        let WordArray[11] = word11;
+        let word12 = "BACKPACKED";
+        let WordArray[12] = word12;
+        let word13 = "CHIMPANZEE";
+        let WordArray[13] = word13;
+        let word14 = "COMPRISING";
+        let WordArray[14] = word14;
+        let word15 = "VOLUMIZING";
+        let WordArray[15] = word15;
+        let word16 = "BALKANIZED";
+        let WordArray[16] = word16;
+        let word17 = "MYXOMYCETE";
+        let WordArray[17] = word17;
+        let word18 = "CLONAZEPAM";
+        let WordArray[18] = word18;
+        let word19 = "PODZOLIZED";
+        let WordArray[19] = word19;
+        */
+        return;
+    }
+    method void Dispose()
+    {
+       do WordArray.dispose();
+       do Memory.deAlloc(this);
+        return;
+    }
+    method string GetWord(int index)
+    {
+        return WordArray[index];
+    }
+}

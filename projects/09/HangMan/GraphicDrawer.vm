@@ -1,0 +1,1155 @@
+function GraphicDrawer.DrawSkull 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 24582
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 10261
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 26599
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 28686
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 8196
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 10836
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 9252
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 10836
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 4104
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 2448
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 3104
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 15420
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 19506
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 11220
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 4104
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function GraphicDrawer.DrawVerticalPiece 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 2192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 2128
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 2576
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 2192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 2192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 3088
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 2128
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function GraphicDrawer.DrawTopPiece 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 4
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 145
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 2069
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 21
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 1025
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 2034
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 2192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 3088
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 2128
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function GraphicDrawer.DrawHorizontalSection 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 8208
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 1024
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function GraphicDrawer.DrawGallowHook 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 32767
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 32766
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 28672
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 32764
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 32256
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 32766
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 32767
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 480
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 816
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 480
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function GraphicDrawer.DrawRopeSection 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 192
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function GraphicDrawer.DrawHeadSection 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 8184
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 31806
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 4081
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 7097
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 14301
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 11181
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 16387
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 17282
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 16386
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 18382
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 14396
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 14392
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 16380
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 20450
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 30783
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 256
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function GraphicDrawer.DrawBodySection 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 30703
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 30703
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 17441
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 25154
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 20870
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 18826
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 17426
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 18418
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 17554
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 17058
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 17058
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 24902
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 22554
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 18402
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function GraphicDrawer.DrawHipSection 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 16386
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 16386
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 16386
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 16386
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 16770
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 16770
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 16770
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 16770
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 32766
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 8580
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 11700
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 8580
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 8580
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 8580
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 8580
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 8580
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function GraphicDrawer.DrawFeetSection 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 8580
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 16380
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 32766
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 32766
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 16380
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 8772
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 8772
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 8772
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 15996
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 32382
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 32382
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 32382
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function GraphicDrawer.DrawDirt 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 2048
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 16386
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 128
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 4
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 256
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 2050
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 32767
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 2080
+call Memory.poke 2
+pop temp 0
+push constant 0
+return

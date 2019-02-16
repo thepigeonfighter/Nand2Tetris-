@@ -1,0 +1,21 @@
+class LevelInfoUI
+{
+    method void SetLevel(int level)
+    {
+        var string levelTitle;
+        do Output.moveCursor(3,45);         
+        let levelTitle = "Level : ";
+        do Output.printString(levelTitle);
+        do Output.printInt(level);
+        return;
+    }
+    method void SetGuessesLeft(int guessesLeft)
+    {
+        var string guessTitle;
+        do Output.moveCursor(4,45);         
+        let guessTitle = "Guesses Left : ";
+        do Output.printString(guessTitle);
+        do Output.printInt(guessesLeft);
+        return;
+    }
+}

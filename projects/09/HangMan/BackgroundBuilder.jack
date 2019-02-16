@@ -1,0 +1,206 @@
+//This class is used to set up the background graphics
+//Should be called on initialization
+class BackgroundBuilder
+{
+    field int currentSection;
+    constructor BackgroundBuilder new()
+    {
+        let currentSection = 0;
+        return this;
+    }
+    method void Build()
+    {
+        do Screen.setColor(true);
+        do DrawBackground();
+        do DrawHeader();
+        do BuildTitle();
+        do DrawFooter();
+        return;
+    }
+    method void Reset()
+    {
+        do ClearBackground();
+        let currentSection = 0;
+        return;
+    }
+    method void DrawNext()
+    {
+        if(currentSection = 5)
+        {
+            do BuildBody();
+            
+        }
+        if(currentSection = 4)
+        {
+            do DrawRope();
+        }
+        if(currentSection = 3)
+        {
+            do DrawTopPiece();
+        }
+        if(currentSection = 2)
+        {
+            do DrawVerticalPieces();            
+        }
+        if( currentSection = 1)
+        {
+            do DrawDirt();
+        }
+        if(currentSection = 0)
+        {
+            do DrawGround();
+        }
+        let currentSection = currentSection + 1;
+        return;
+    }
+    method void ClearBackground()
+    {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(156,0 ,511,179);
+        do Screen.setColor(true);
+        return;
+    }
+    method void DrawBackground()
+    {
+        //Draws vertical line separating text title from game view
+        do Screen.drawLine(155,0,155,255);
+        //Draw horizontal line that separates gameview from secret word
+        do Screen.drawLine(155,180,511,180);
+        do WriteSecretWordSection();
+        do WritePastGuessesSection();
+        return;
+    }
+    method void WritePastGuessesSection()
+    {
+        do Output.moveCursor(15,0);
+        do Output.printString(" Previous Guesses");
+        do Screen.drawLine(0,140,155,140);
+        return;
+    }
+    method void DrawHeader()
+    {
+        do GraphicDrawer.DrawSkull(3);
+        do GraphicDrawer.DrawSkull(4);
+        do GraphicDrawer.DrawSkull(5);
+        return;
+    }
+    method void BuildBody()
+    {
+        do GraphicDrawer.DrawHeadSection(2579);
+        do GraphicDrawer.DrawBodySection(3091);
+        do GraphicDrawer.DrawHipSection(3603);
+        do GraphicDrawer.DrawFeetSection(4115);
+        return;
+    }
+    method void BuildTitle()
+    {
+        do Output.moveCursor(0,0);
+        do Output.println();
+        do Output.println(); 
+        do Output.printString(" ----Hangman----");
+        do Output.println();
+        do Output.printString(" ---------------");
+        do Output.println();
+        do Output.printString(" Try to guess the");
+        do Output.println();
+        do Output.printString(" secret word before");
+        do Output.println();
+        do Output.printString(" your friend Yakov");
+        do Output.println();
+        do Output.printString(" is hung.");
+        return;
+    }
+    method void WriteSecretWordSection()
+    {
+        do Output.moveCursor(17,20);
+        do Output.printString("Secret Word:");
+        return;
+    }
+    method void DrawFooter()
+    {
+        do GraphicDrawer.DrawSkull(3427);
+        do GraphicDrawer.DrawSkull(3428);
+        do GraphicDrawer.DrawSkull(3429);
+        return;
+    }
+    method void DrawVerticalPieces()
+    {
+        var int location;
+        var int verticalPieces;
+        //Location of first vertical piece of the gallows
+        let location =1040;
+        let verticalPieces = 0;
+        while(verticalPieces<5)
+        {
+            do GraphicDrawer.DrawVerticalPiece(location);
+            let location = location + 512;
+            let verticalPieces = verticalPieces + 1;
+        }
+        return;
+    }
+    method void DrawTopPiece()
+    {
+        var int horizontalPieces;
+        var int location;
+        let location = 528;
+        do GraphicDrawer.DrawTopPiece(location);
+        let location = location + 1;
+        while( horizontalPieces <2)
+        {
+            do GraphicDrawer.DrawHorizontalSection(location);
+            let location = location + 1;
+            let horizontalPieces = horizontalPieces + 1;
+        }
+        do GraphicDrawer.DrawGallowHook(location);
+        return;
+    }
+    method void DrawGround()
+    {
+        //Draw cliff lines
+        do Screen.drawLine(155,112,280,112);
+        do Screen.drawLine(280,112,280,180);
+        return;
+    }
+    method void DrawDirt()
+    {
+        var int width;
+        var int height;
+        var int currentLocation;
+        var int offset;
+        let currentLocation = 3626;
+        let width = 0;
+        while(width<7)
+        {
+            let height = 0;
+            let offset = 0;
+            while(height <4)
+            {
+              do GraphicDrawer.DrawDirt(currentLocation + offset);
+              let offset = offset + 512;
+              let height = height + 1;        
+            
+            }
+            let width = width + 1;
+            let currentLocation = currentLocation + 1;
+        }
+        return;
+    }
+    method void DrawRope()
+    {
+        var int verticalPieces;
+        var int location;
+        let location = 1043;
+         while(verticalPieces<3)
+        {
+            do GraphicDrawer.DrawRopeSection(location);
+            let location = location + 512;
+            let verticalPieces = verticalPieces + 1;
+        }
+        return;
+    }
+    method void Dispose()
+    {
+       do Memory.deAlloc(this);
+       return;
+    }
+}

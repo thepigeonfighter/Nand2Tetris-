@@ -1,0 +1,83 @@
+class PreviousGuessesUI
+{
+    field Array previousGuesses;
+    field int currentIndex;
+
+    constructor PreviousGuessesUI new ()
+    {
+        let currentIndex = 0;
+        let previousGuesses = Array.new(15);
+        return this;
+    }
+    method void Reset()
+    {
+        do Output.moveCursor(17,1);
+        do Output.printString("             ");
+        do Output.println();
+        do Output.printString("             ");
+        do Output.println();
+        do Output.printString("             ");
+        do Output.println();
+        let currentIndex = 0;
+        let previousGuesses = Array.new(15);
+        return;
+    }
+    method bool IsValidGuess(char guess)
+    {
+        var int counter;
+        var bool validChar;
+        var char c;
+        let validChar = true;
+        let counter = 0;
+        while(counter < currentIndex)
+        {
+            let c = previousGuesses[counter];
+            if(c = guess)
+            {
+                let validChar = false;
+            }
+            let counter = counter + 1;
+        }
+        return validChar;
+    }
+    method void AddGuess(char guess)
+    {
+        let previousGuesses[currentIndex] = guess;
+        let currentIndex = currentIndex + 1;
+        do DisplayGuesses();
+        return;
+    }
+    method void DisplayGuesses()
+    {
+        var int counter;
+        var int innerCounter;
+        let innerCounter = 0;  
+        let counter = 0;
+        do Output.moveCursor(17,1);
+        while(counter < currentIndex)
+        {
+            do Output.printChar(previousGuesses[counter]);  
+            if(~(counter + 1 = currentIndex))
+            {
+                do Output.printChar(44); //Place a comma between numbers
+            }
+            if(innerCounter = 4)
+            {
+                do Output.println();
+                do Output.printString(" ");
+                let innerCounter = -1;
+            }
+            let innerCounter = innerCounter + 1;
+            let counter = counter + 1;
+        }
+        
+        
+        return;
+    }   
+    
+    method void Dispose()
+    {
+        do Memory.deAlloc(this);
+        return;
+    }
+}
