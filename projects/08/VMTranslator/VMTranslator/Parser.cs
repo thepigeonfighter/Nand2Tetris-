@@ -27,7 +27,6 @@ namespace VMTranslator
             _functionalCommandDictionary.Add("goto", ConvertGoto);
             _functionalCommandDictionary.Add("function", ConvertFunction);
             _functionalCommandDictionary.Add("return", ConvertReturnStatement);
-            _functionalCommandDictionary.Add("pop", ConvertPopCommand);
             _functionalCommandDictionary.Add("call", ConvertCallStatement);
             _functionalCommandDictionary.Add("add", ConvertAddCommand);
             _functionalCommandDictionary.Add("eq", ConvertEqualsCommand);
@@ -101,9 +100,16 @@ namespace VMTranslator
         {
             string[] commandParts = line.Split(' ');
             LineCommand command = null;
-            command = _functionalCommandDictionary[line](line);                      
-            command.Comment = $"//(----VMCOMMAND--------)\n//----{line}----//";
-            command.FileName = _fileName;
+            try
+            {
+                command = _functionalCommandDictionary[commandParts[0]](line);
+                command.Comment = $"//(----VMCOMMAND--------)\n//----{line}----//";
+                command.FileName = _fileName;
+            }
+            catch
+            {
+
+            }
             return command;
         }
 
@@ -120,18 +126,12 @@ namespace VMTranslator
 
         private LineCommand ConvertReturnStatement(string line)
         {
-            if(_lastFunction == null)
-            {
-                throw new Exception("There was no function associated with this return call.");
-            }
-            else
-            {
                 LineCommand command = new LineCommand();
                 command.CommandType = CommandType.Return;
                 command.LabelName = command.LabelName;
                 _lastFunction = null;
                 return command;
-            }
+            
         }
 
         private LineCommand ConvertFunction(string line)

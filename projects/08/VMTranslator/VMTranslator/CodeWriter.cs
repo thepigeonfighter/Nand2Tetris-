@@ -18,7 +18,7 @@ namespace VMTranslator
                 string vmCodeComment = command.Comment;
                 lines.Add(vmCodeComment);
                 string asmCode = CommandDictionary[command.CommandType](command);
-                
+                lines.Add(asmCode);
 
             }
             lines.Add("\n//This concludes the asm file. ");
