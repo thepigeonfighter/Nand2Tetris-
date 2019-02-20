@@ -1,0 +1,55 @@
+<class>
+<keyword>class</keyword>
+<identifier>Main</identifier>
+<symbol> { </symbol>
+<subroutineDec>
+<keyword>method</keyword>
+<keyword>void</keyword>
+<identifier>draw</identifier>
+<symbol> ( </symbol>
+<parameterList>
+</parameterList>
+<symbol> ) </symbol>
+<subroutineBody>
+<symbol> { </symbol>
+<varDec>
+<keyword>var</keyword>
+<keyword>int</keyword>
+<identifier>length</identifier>
+<symbol> ; </symbol>
+</varDec>
+<statements>
+<letStatement>
+<keyword>let</keyword>
+<identifier>i</identifier>
+<symbol> = </symbol>
+<expression>
+<term>
+<identifier>i</identifier>
+</term>
+<symbol> * </symbol>
+<term>
+<symbol> ( </symbol>
+<expression>
+<term>
+<symbol> - </symbol>
+<term>
+<identifier>j</identifier>
+</term>
+</term>
+</expression>
+<symbol> ) </symbol>
+</term>
+</expression>
+<symbol> ; </symbol>
+</letStatement>
+<returnStatement>
+<keyword>return</keyword>
+<symbol> ; </symbol>
+</returnStatement>
+</statements>
+<symbol> } </symbol>
+</subroutineBody>
+</subroutineDec>
+<symbol> } </symbol>
+</class>
