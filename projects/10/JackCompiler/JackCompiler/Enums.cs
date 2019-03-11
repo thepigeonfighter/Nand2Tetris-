@@ -7,4 +7,5 @@ using System.Threading.Tasks;
 namespace JackCompiler
 {
     public enum TokenType { keyword, symbol,identifier,integerConstant, stringConstant}
+    public enum IdentifierType { STATIC,FIELD, ARG, VAR}
 }

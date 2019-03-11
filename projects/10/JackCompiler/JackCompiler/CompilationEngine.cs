@@ -7,6 +7,7 @@ namespace JackCompiler
     {
         private string _output;
         private string _outputFilePath;
+
         public CompilationEngine(Tokenizer tokenizer ,string outputFilePath) :base(tokenizer) 
         {
             _outputFilePath = outputFilePath;

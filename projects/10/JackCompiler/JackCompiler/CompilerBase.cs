@@ -8,6 +8,7 @@ namespace JackCompiler
 {
     public class CompilerBase :ExpressiveTokens
     {
+        private SymbolTable symbolTable = new SymbolTable();
         public CompilerBase(Tokenizer tokenizer) :base(tokenizer)
         {
         }
@@ -187,12 +188,15 @@ namespace JackCompiler
             string parsedValue = "<parameterList>\n";
             while (true)
             {
+
                 Token currentToken = _tokenizer.GetCurrentToken();
                 if (currentToken.Symbol == ')')
                 {
                     break;
                 }
-                else if (currentToken.TokenType == TokenType.keyword)
+
+                string name = "";
+                if (currentToken.TokenType == TokenType.keyword)
                 {
                     parsedValue += ConsumeByType(TokenType.keyword);                   
 
@@ -216,16 +220,21 @@ namespace JackCompiler
         protected string CompileClassVarDeclarations()
         {
             string parsedValue = "<classVarDec>\n";
+            IdentifierType identifierType =GetIdentifierType( _tokenizer.GetCurrentToken().GenericValue);
             parsedValue += ConsumeByType(TokenType.keyword);
             Token currentToken = _tokenizer.GetCurrentToken();
+            string valueType = "";
             if (currentToken.TokenType == TokenType.identifier || currentToken.TokenType == TokenType.keyword)
             {
+                valueType = currentToken.GenericValue;
                 parsedValue += ConsumeByType(currentToken.TokenType);
             }
             else
             {
                 throw new Exception("Invalid class var declaration");
             }
+            string name = _tokenizer.GetCurrentToken().GenericValue;
+            symbolTable.DefineClassLevelIdentifier(name, valueType, identifierType);
             parsedValue += ConsumeByType(TokenType.identifier);
             while (true)
             {
@@ -238,6 +247,8 @@ namespace JackCompiler
                 else
                 {
                     parsedValue += ConsumeSymbol(",");
+                    name = _tokenizer.GetCurrentToken().GenericValue;
+                    symbolTable.DefineClassLevelIdentifier(name, valueType, identifierType);
                     parsedValue += ConsumeByType(TokenType.identifier);
                 }
             }
@@ -260,6 +271,22 @@ namespace JackCompiler
             }
             parsedValue += "</subroutineDec>\n";
             return parsedValue;
+        }
+        private IdentifierType GetIdentifierType(string type)
+        {
+            switch (type)
+            {
+                case "field":
+                    return IdentifierType.FIELD;
+                case "arg":
+                    return IdentifierType.ARG;
+                case "var":
+                    return IdentifierType.VAR;
+                case "static":
+                    return IdentifierType.STATIC;
+                default:
+                    throw new Exception($"'{type}' is not a valid identifier type.");
+            }
         }
         private string CompileSubroutineBody()
         {
