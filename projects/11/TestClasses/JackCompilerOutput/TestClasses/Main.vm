@@ -1,0 +1,101 @@
+//--------class Main-----------
+//----Compiling Void Method main----
+function Main.main 2
+//---- Added a VAR Array named b to the local level symbol table----
+//---- Added a VAR Array named a to the local level symbol table----
+push constant 6
+call Array.new 1
+pop local 1
+push constant 7
+call Array.new 1
+pop local 0
+push local 1
+push constant 2
+add
+push constant 3
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 5
+add
+push constant 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 1
+add
+push constant 10
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 3
+add
+push constant 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push constant 5
+add
+push constant 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push constant 6
+add
+push constant 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 2
+add
+push local 1
+push local 1
+push constant 5
+add
+pop pointer 1
+push that 0
+add
+pop pointer 1
+push that 0
+push local 0
+push constant 7
+push local 1
+push constant 3
+add
+pop pointer 1
+push that 0
+sub
+push constant 2
+call Main.double 1
+sub
+push constant 1
+add
+add
+pop pointer 1
+push that 0
+call Math.multiply 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+//----End Subroutine----
+//----Compiling Method double which returns  a int to stack----
+function Main.double 0
+push constant 1
+return
+//----End Subroutine----
+//-------------End class Main Compilation---------

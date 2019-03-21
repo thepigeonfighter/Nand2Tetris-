@@ -1,0 +1,481 @@
+//--------class Ball-----------
+function Ball.new 0
+push constant 15
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push argument 2
+pop this 10
+push argument 3
+push constant 6
+sub
+pop this 11
+push argument 4
+pop this 12
+push argument 5
+push constant 6
+sub
+pop this 13
+push constant 0
+pop this 14
+push pointer 0
+call Ball.show 1
+pop temp 0
+push pointer 0
+return
+//----End Subroutine----
+//----Compiling Void Method dispose----
+function Ball.dispose 0
+push argument 0
+pop pointer 0 
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+//----End Subroutine----
+//----Compiling Void Method show----
+function Ball.show 0
+push argument 0
+pop pointer 0 
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+call Ball.draw 1
+pop temp 0
+push constant 0
+return
+//----End Subroutine----
+//----Compiling Void Method hide----
+function Ball.hide 0
+push argument 0
+pop pointer 0 
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+call Ball.draw 1
+pop temp 0
+push constant 0
+return
+//----End Subroutine----
+//----Compiling Void Method draw----
+function Ball.draw 0
+push argument 0
+pop pointer 0 
+push this 0
+push this 1
+push this 0
+push constant 5
+add
+push this 1
+push constant 5
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+//----End Subroutine----
+//----Compiling Method getLeft which returns  a int to stack----
+function Ball.getLeft 0
+push argument 0
+pop pointer 0 
+push this 0
+return
+//----End Subroutine----
+//----Compiling Method getRight which returns  a int to stack----
+function Ball.getRight 0
+push argument 0
+pop pointer 0 
+push this 0
+push constant 5
+add
+return
+//----End Subroutine----
+//----Compiling Void Method setDestination----
+function Ball.setDestination 3
+push argument 0
+pop pointer 0 
+//---- Added a VAR int named dx to the local level symbol table----
+//---- Added a VAR int named dy to the local level symbol table----
+//---- Added a VAR int named temp to the local level symbol table----
+push argument 1
+push this 0
+sub
+pop this 2
+push argument 2
+push this 1
+sub
+pop this 3
+push this 2
+call Math.abs 1
+pop local 0
+push this 3
+call Math.abs 1
+pop local 1
+push local 0
+push local 1
+lt
+pop this 7
+push this 7
+if-goto Ball_setDestination_1
+goto Ball_setDestination_2
+label Ball_setDestination_1
+push local 0
+pop local 2
+push local 1
+pop local 0
+push local 2
+pop local 1
+push this 1
+push argument 2
+lt
+pop this 8
+push this 0
+push argument 1
+lt
+pop this 9
+goto Ball_setDestination_3
+label Ball_setDestination_2
+push this 0
+push argument 1
+lt
+pop this 8
+push this 1
+push argument 2
+lt
+pop this 9
+label Ball_setDestination_3
+push constant 2
+push local 1
+call Math.multiply 2
+push local 0
+sub
+pop this 4
+push constant 2
+push local 1
+call Math.multiply 2
+pop this 5
+push constant 2
+push local 1
+push local 0
+sub
+call Math.multiply 2
+pop this 6
+push constant 0
+return
+//----End Subroutine----
+//----Compiling Method move which returns  a int to stack----
+function Ball.move 0
+push argument 0
+pop pointer 0 
+push pointer 0
+call Ball.hide 1
+pop temp 0
+push this 4
+push constant 0
+lt
+if-goto Ball_move_1
+goto Ball_move_2
+label Ball_move_1
+push this 4
+push this 5
+add
+pop this 4
+goto Ball_move_3
+label Ball_move_2
+push this 4
+push this 6
+add
+pop this 4
+push this 9
+if-goto Ball_move_4
+goto Ball_move_5
+label Ball_move_4
+push this 7
+if-goto Ball_move_7
+goto Ball_move_8
+label Ball_move_7
+push this 0
+push constant 4
+add
+pop this 0
+goto Ball_move_9
+label Ball_move_8
+push this 1
+push constant 4
+add
+pop this 1
+label Ball_move_9
+goto Ball_move_6
+label Ball_move_5
+push this 7
+if-goto Ball_move_10
+goto Ball_move_11
+label Ball_move_10
+push this 0
+push constant 4
+sub
+pop this 0
+goto Ball_move_12
+label Ball_move_11
+push this 1
+push constant 4
+sub
+pop this 1
+label Ball_move_12
+label Ball_move_6
+label Ball_move_3
+push this 8
+if-goto Ball_move_13
+goto Ball_move_14
+label Ball_move_13
+push this 7
+if-goto Ball_move_16
+goto Ball_move_17
+label Ball_move_16
+push this 1
+push constant 4
+add
+pop this 1
+goto Ball_move_18
+label Ball_move_17
+push this 0
+push constant 4
+add
+pop this 0
+label Ball_move_18
+goto Ball_move_15
+label Ball_move_14
+push this 7
+if-goto Ball_move_19
+goto Ball_move_20
+label Ball_move_19
+push this 1
+push constant 4
+sub
+pop this 1
+goto Ball_move_21
+label Ball_move_20
+push this 0
+push constant 4
+sub
+pop this 0
+label Ball_move_21
+label Ball_move_15
+push this 0
+push this 10
+gt
+not
+if-goto Ball_move_22
+goto Ball_move_23
+label Ball_move_22
+push constant 1
+pop this 14
+push this 10
+pop this 0
+goto Ball_move_24
+label Ball_move_23
+label Ball_move_24
+push this 0
+push this 11
+lt
+not
+if-goto Ball_move_25
+goto Ball_move_26
+label Ball_move_25
+push constant 2
+pop this 14
+push this 11
+pop this 0
+goto Ball_move_27
+label Ball_move_26
+label Ball_move_27
+push this 1
+push this 12
+gt
+not
+if-goto Ball_move_28
+goto Ball_move_29
+label Ball_move_28
+push constant 3
+pop this 14
+push this 12
+pop this 1
+goto Ball_move_30
+label Ball_move_29
+label Ball_move_30
+push this 1
+push this 13
+lt
+not
+if-goto Ball_move_31
+goto Ball_move_32
+label Ball_move_31
+push constant 4
+pop this 14
+push this 13
+pop this 1
+goto Ball_move_33
+label Ball_move_32
+label Ball_move_33
+push pointer 0
+call Ball.show 1
+pop temp 0
+push this 14
+return
+//----End Subroutine----
+//----Compiling Void Method bounce----
+function Ball.bounce 5
+push argument 0
+pop pointer 0 
+//---- Added a VAR int named newx to the local level symbol table----
+//---- Added a VAR int named newy to the local level symbol table----
+//---- Added a VAR int named divLengthx to the local level symbol table----
+//---- Added a VAR int named divLengthy to the local level symbol table----
+//---- Added a VAR int named factor to the local level symbol table----
+push this 2
+push constant 10
+call Math.divide 2
+pop local 2
+push this 3
+push constant 10
+call Math.divide 2
+pop local 3
+push argument 1
+push constant 0
+eq
+if-goto Ball_bounce_1
+goto Ball_bounce_2
+label Ball_bounce_1
+push constant 10
+pop local 4
+goto Ball_bounce_3
+label Ball_bounce_2
+push this 2
+push constant 0
+lt
+not
+push argument 1
+push constant 1
+eq
+and
+push this 2
+push constant 0
+lt
+push argument 1
+push constant 1
+neg
+eq
+and
+or
+if-goto Ball_bounce_4
+goto Ball_bounce_5
+label Ball_bounce_4
+push constant 20
+pop local 4
+goto Ball_bounce_6
+label Ball_bounce_5
+push constant 5
+pop local 4
+label Ball_bounce_6
+label Ball_bounce_3
+push this 14
+push constant 1
+eq
+if-goto Ball_bounce_7
+goto Ball_bounce_8
+label Ball_bounce_7
+push constant 506
+pop local 0
+push local 3
+push constant 50
+neg
+call Math.multiply 2
+push local 2
+call Math.divide 2
+pop local 1
+push this 1
+push local 1
+push local 4
+call Math.multiply 2
+add
+pop local 1
+goto Ball_bounce_9
+label Ball_bounce_8
+push this 14
+push constant 2
+eq
+if-goto Ball_bounce_10
+goto Ball_bounce_11
+label Ball_bounce_10
+push constant 0
+pop local 0
+push local 3
+push constant 50
+call Math.multiply 2
+push local 2
+call Math.divide 2
+pop local 1
+push this 1
+push local 1
+push local 4
+call Math.multiply 2
+add
+pop local 1
+goto Ball_bounce_12
+label Ball_bounce_11
+push this 14
+push constant 3
+eq
+if-goto Ball_bounce_13
+goto Ball_bounce_14
+label Ball_bounce_13
+push constant 250
+pop local 1
+push local 2
+push constant 25
+neg
+call Math.multiply 2
+push local 3
+call Math.divide 2
+pop local 0
+push this 0
+push local 0
+push local 4
+call Math.multiply 2
+add
+pop local 0
+goto Ball_bounce_15
+label Ball_bounce_14
+push constant 0
+pop local 1
+push local 2
+push constant 25
+call Math.multiply 2
+push local 3
+call Math.divide 2
+pop local 0
+push this 0
+push local 0
+push local 4
+call Math.multiply 2
+add
+pop local 0
+label Ball_bounce_15
+label Ball_bounce_12
+label Ball_bounce_9
+push pointer 0
+push local 0
+push local 1
+call Ball.setDestination 3
+pop temp 0
+push constant 0
+return
+//----End Subroutine----
+//-------------End class Ball Compilation---------

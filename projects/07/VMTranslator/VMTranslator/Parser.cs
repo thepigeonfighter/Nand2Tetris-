@@ -104,7 +104,7 @@ namespace VMTranslator
                     command.CommandType = CommandType.Not;
                     break;
                 default:
-                    break;
+                    throw new Exception("Not recognized");
             }
 
             return command;

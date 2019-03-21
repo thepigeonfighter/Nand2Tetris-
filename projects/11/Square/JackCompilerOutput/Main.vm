@@ -1,0 +1,17 @@
+//--------class Main-----------
+//----Compiling Void Method main----
+function Main.main 1
+//---- Added a VAR SquareGame named game to the local level symbol table----
+
+call SquareGame.new 0
+pop local 0
+push local 0
+call SquareGame.run 1
+pop temp 0
+push local 0
+call SquareGame.dispose 1
+pop temp 0
+push constant 0
+return
+//----End Subroutine----
+//-------------End class Main Compilation---------

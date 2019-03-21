@@ -5,6 +5,7 @@ namespace HackAssembler
 {
     internal class Program
     {
+        private static string _filePath;
         private static void Main(string[] args)
         {
             if (args.Length == 0 || args == null)
@@ -51,6 +52,7 @@ namespace HackAssembler
             if (File.Exists(filePath))
             {
                 Console.WriteLine("File found, attempting conversion");
+                _filePath = filePath;
                 string[] lines = File.ReadAllLines(filePath);
                 string fileName = Path.GetFileNameWithoutExtension(filePath);
                 WriteConvertedFile(lines, fileName);
@@ -66,9 +68,9 @@ namespace HackAssembler
             try
             {
                 string[] convertedLines = HackParser.Parse(lines);
-                string filePath = $@"C: \Users\dell\Documents\nand2tetris\projects\06\AssembledFiles\{fileName}.hack";
-                File.WriteAllLines(filePath, convertedLines);
-                Console.WriteLine("Write sucessful, file stored at " + filePath);
+                string newPath = _filePath.Replace(".asm", ".hack");
+                File.WriteAllLines(newPath, convertedLines);
+                Console.WriteLine("Write sucessful, file stored at " + newPath);
             }
             catch (Exception e)
             {

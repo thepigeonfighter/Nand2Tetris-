@@ -5,3 +5,10 @@ C:\Users\dell\source\repos\HackAssembler\HackAssembler\obj\Debug\HackAssembler.c
 C:\Users\dell\source\repos\HackAssembler\HackAssembler\obj\Debug\HackAssembler.csproj.CoreCompileInputs.cache
 C:\Users\dell\source\repos\HackAssembler\HackAssembler\obj\Debug\HackAssembler.exe
 C:\Users\dell\source\repos\HackAssembler\HackAssembler\obj\Debug\HackAssembler.pdb
+F:\VSRepo\Nand2Tetris\projects\06\HackAssembler\HackAssembler\bin\Debug\HackAssembler.exe.config
+F:\VSRepo\Nand2Tetris\projects\06\HackAssembler\HackAssembler\bin\Debug\HackAssembler.exe
+F:\VSRepo\Nand2Tetris\projects\06\HackAssembler\HackAssembler\bin\Debug\HackAssembler.pdb
+F:\VSRepo\Nand2Tetris\projects\06\HackAssembler\HackAssembler\obj\Debug\HackAssembler.csprojAssemblyReference.cache
+F:\VSRepo\Nand2Tetris\projects\06\HackAssembler\HackAssembler\obj\Debug\HackAssembler.csproj.CoreCompileInputs.cache
+F:\VSRepo\Nand2Tetris\projects\06\HackAssembler\HackAssembler\obj\Debug\HackAssembler.exe
+F:\VSRepo\Nand2Tetris\projects\06\HackAssembler\HackAssembler\obj\Debug\HackAssembler.pdb

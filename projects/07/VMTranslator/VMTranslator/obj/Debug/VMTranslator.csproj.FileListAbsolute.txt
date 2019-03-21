@@ -5,3 +5,10 @@ C:\Users\dell\source\repos\VMTranslator\VMTranslator\obj\Debug\VMTranslator.cspr
 C:\Users\dell\source\repos\VMTranslator\VMTranslator\obj\Debug\VMTranslator.csproj.CoreCompileInputs.cache
 C:\Users\dell\source\repos\VMTranslator\VMTranslator\obj\Debug\VMTranslator.exe
 C:\Users\dell\source\repos\VMTranslator\VMTranslator\obj\Debug\VMTranslator.pdb
+F:\VSRepo\Nand2Tetris\projects\07\VMTranslator\VMTranslator\bin\Debug\VMTranslator.exe.config
+F:\VSRepo\Nand2Tetris\projects\07\VMTranslator\VMTranslator\bin\Debug\VMTranslator.exe
+F:\VSRepo\Nand2Tetris\projects\07\VMTranslator\VMTranslator\bin\Debug\VMTranslator.pdb
+F:\VSRepo\Nand2Tetris\projects\07\VMTranslator\VMTranslator\obj\Debug\VMTranslator.csprojAssemblyReference.cache
+F:\VSRepo\Nand2Tetris\projects\07\VMTranslator\VMTranslator\obj\Debug\VMTranslator.csproj.CoreCompileInputs.cache
+F:\VSRepo\Nand2Tetris\projects\07\VMTranslator\VMTranslator\obj\Debug\VMTranslator.exe
+F:\VSRepo\Nand2Tetris\projects\07\VMTranslator\VMTranslator\obj\Debug\VMTranslator.pdb

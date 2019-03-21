@@ -27,8 +27,11 @@ namespace VMTranslator
                 }
                 else 
                 {
-                    string line = ConvertOtherCommands(command);
-                    lines.Add(line);
+                    if (command != null)
+                    {
+                        string line = ConvertOtherCommands(command);
+                        lines.Add(line);
+                    }
                 }
 
             }
