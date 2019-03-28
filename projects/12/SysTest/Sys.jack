@@ -1,0 +1,67 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Sys.jack
+
+/**
+ * A library that supports various program execution services.
+ */
+class Sys {
+
+    /** Performs all the initializations required by the OS. */
+    function void init() {
+        do Memory.init();
+        do Math.init();
+        do Screen.init();
+        do Keyboard.init();
+        do Output.init();        
+        do Main.main();
+        do Sys.halt();
+        return;
+    }
+
+    /** Halts the program execution. */
+    function void halt() {
+        var bool loop;
+        let loop = true;
+        while(loop)
+        {
+            //system halted from doing anything
+        }
+        return;
+    }
+
+    /** Waits approximately duration milliseconds and returns.  */
+    function void wait(int duration) {
+        var int counter;
+        var int tempNum;
+        var int tempNum1;
+        while(counter < duration )
+        {
+             while(tempNum1 < duration)
+            {                    
+                    let tempNum1 = tempNum1 + 1;
+                    let tempNum1 = tempNum1 * 1 *1 *1 *1 * 1* 1*1 / 1 * 1 / 1;
+                    let tempNum1 = tempNum1 * 1 *1 *1 *1 * 1* 1*1 / 1 * 1 / 1;
+                    let tempNum1 = tempNum1 * 1 *1 *1 *1 * 1* 1*1 / 1 * 1 / 1;
+                    let tempNum1 = tempNum1 * 1 *1 *1 *1 * 1* 1*1 / 1 * 1 / 1;
+                    let tempNum1 = tempNum1 * 1 *1 *1 *1 * 1* 1*1 / 1 * 1 / 1;
+                    let tempNum1 = tempNum1 * 1 *1 *1 *1 * 1* 1*1 / 1 * 1 / 1;
+
+            }
+            
+            let counter = counter + 1;
+        }
+        return;
+    }
+
+    /** Displays the given error code in the form "ERR<errorCode>",
+     *  and halts the program's execution. */
+    function void error(int errorCode) {
+        var string message;
+        do Output.moveCursor(0,0);
+        let message = "ERR ";
+        do message.appendChar(48 + errorCode);
+        return;
+    }
+}

@@ -1,10 +1,11 @@
 class GuessUI
 {
-    field string secretWord;
-    field string currentlyDisplayWord;
+    field String secretWord;
+    field String currentlyDisplayWord;
     field int lettersGuessed;
     constructor GuessUI new (string word)
     {    
+        let secretWord = word;        
         do Reset(word);
         return this;
     }
@@ -30,12 +31,12 @@ class GuessUI
         var bool foundMatch;
         var char c;
         //do  ShowWord();
-        let max = String.length(secretWord);
+        let max = secretWord.length();
         let foundMatch = false;
         let counter = 0;  
         while (counter<max)
         {        
-            let c = String.charAt(secretWord, counter);        
+            let c = secretWord.charAt(counter);        
             if(c = guess)
                 {
                     do UpdateDisplay(c,counter);
@@ -64,7 +65,7 @@ class GuessUI
         let undiscoveredChar = 42;
         while(counter< 10)
         {
-            let letter = String.charAt(currentlyDisplayWord,counter);
+            let letter = currentlyDisplayWord.charAt(counter);
             if(letter = undiscoveredChar)
             {
                 let fullWordGuessed = false;
@@ -77,7 +78,7 @@ class GuessUI
     method void UpdateDisplay(char c , int index)
     {
         let lettersGuessed = lettersGuessed + 1;
-        do String.setCharAt(currentlyDisplayWord,index,c);
+        do currentlyDisplayWord.setCharAt(index,c);
         do Output.moveCursor(19,21);
         do Output.printString(currentlyDisplayWord);
         return;
